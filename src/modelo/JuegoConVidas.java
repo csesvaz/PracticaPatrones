@@ -43,5 +43,4 @@ public abstract class JuegoConVidas {
 		}
 		return 0;
 	}
-	public abstract boolean juega(String cadena);
 }

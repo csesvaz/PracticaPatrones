@@ -1,20 +1,23 @@
 package modelo;
 
+import EntradaSalida.MyInput;
+
 public class PracticaJuego {
 
 	public static void main(String[] args) {
-		
-		JuegoConVidas partida1=new JuegoConVidas(5);
-		partida1.muestraVidasIniciales();
-		partida1.quitaVida();
-		JuegoConVidas partida2=new JuegoConVidas(5);
-		partida2.muestraVidasIniciales();
-		partida2.actualizaRecord();
-		partida2.quitaVida();
-		partida1.reiniciaPartida();
-		partida1.muestraVidasRestantes();
-		partida1.actualizaRecord();
-		
+		JuegoConVidas juego1 = new JuegoAdivinaNumeroImpar(5, 7);
+		JuegoConVidas juego2 = new JuegoAdivinaNumeroPar(5, 8);
+		JuegoConVidas juego3 = new JuegoAdivinaNumero(5, 8);
+		jugar(juego1);
+		jugar(juego2);
+		jugar(juego3);
 	}
-
+	public static void jugar(JuegoConVidas juego) {
+		String numeroIntento;
+		juego.reiniciaPartida();
+		do {
+			System.out.println("Introduce un numero entero de 1 a 10.");
+			numeroIntento=MyInput.readString();
+		} while (juego.juega(numeroIntento));
+	}
 }
