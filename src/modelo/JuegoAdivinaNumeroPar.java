@@ -17,4 +17,14 @@ public class JuegoAdivinaNumeroPar extends JuegoAdivinaNumero {
 		}
 		return marca;
 	}
+	@Override
+	public void muestraNombre() {
+		System.out.println("Juego Adivina Número Par");
+		
+	}
+	@Override
+	public void muestraInfo() {
+		System.out.println("Este juego consiste en adivinar una número entero entre 0 y 10, que sea par.");
+		muestraVidasIniciales();
+	}
 	}

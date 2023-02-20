@@ -1,6 +1,6 @@
 package modelo;
 
-public class JuegoAdivinaNumero extends JuegoConVidas {
+public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable {
 	//numeroAdivinar representa el atributo propio de la cadena JuegoAdivinaNumero
 		private int numeroAdivinar;
 	//Constructor
@@ -40,5 +40,15 @@ public class JuegoAdivinaNumero extends JuegoConVidas {
 					return true;
 		}
 				}
+		@Override
+		public void muestraNombre() {
+			System.out.println("Juego Adivina Número");
+			
+		}
+		@Override
+		public void muestraInfo() {
+			System.out.println("Este juego consiste en adivinar una número entero entre 0 y 10.");
+			muestraVidasIniciales();
+		}
 	}
 
