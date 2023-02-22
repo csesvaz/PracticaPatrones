@@ -55,7 +55,7 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable {
 		String palAdivinar = diccionario.get(indice);
 		for (int i = 0; i < palAdivinar.length(); i++) {
 			palabraAdivinar.add(palAdivinar.charAt(i));
-			guiones.add(i,"-");
+			guiones.add('-');
 		}
 		mostrarArray(guiones);
 	}
