@@ -1,9 +1,11 @@
 package modelo;
 
+import java.util.Random;
+
 public class JuegoAdivinaNumeroImpar extends JuegoAdivinaNumero {
 
-	public JuegoAdivinaNumeroImpar(int vidas, int numeroAdivinar) {
-		super(vidas, numeroAdivinar);
+	public JuegoAdivinaNumeroImpar(int vidas) {
+		super(vidas);
 	}
 	public boolean validaNumero(int numero) {
 		boolean marca=false;
@@ -15,6 +17,10 @@ public class JuegoAdivinaNumeroImpar extends JuegoAdivinaNumero {
 			}
 		}
 		return marca;
+	}
+	public int numeroAleatorio() {
+		Random r=new Random(System.currentTimeMillis());
+		return 2*r.nextInt(5)+1;
 	}
 	@Override
 	public void muestraNombre() {

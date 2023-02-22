@@ -1,12 +1,13 @@
 package modelo;
 
+import java.util.Random;
+
 public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable {
 	//numeroAdivinar representa el atributo propio de la cadena JuegoAdivinaNumero
 		private int numeroAdivinar;
 	//Constructor
-		public JuegoAdivinaNumero(int vidas, int numeroAdivinar) {
+		public JuegoAdivinaNumero(int vidas) {
 			super(vidas);
-			this.numeroAdivinar = numeroAdivinar;
 		}
 	//metodos (polimorfismo)
 		public boolean validaNumero(int numero) {
@@ -40,6 +41,17 @@ public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable {
 					return true;
 		}
 				}
+		//Método que genera un número aleatorio.
+		public int numeroAleatorio() {
+			Random r= new Random(System.currentTimeMillis());
+				return r.nextInt(11);
+		}
+		//reescribimos reinicia partida
+		public void reiniciaPartida() {
+			super.reiniciaPartida();
+			numeroAdivinar=numeroAleatorio();
+		}
+		
 		@Override
 		public void muestraNombre() {
 			System.out.println("Juego Adivina Número");
@@ -51,4 +63,3 @@ public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable {
 			muestraVidasIniciales();
 		}
 	}
-

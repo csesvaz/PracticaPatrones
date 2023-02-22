@@ -1,13 +1,13 @@
 package modelo;
 
-import menus.Menu;
+import EntradaSalida.MyInput;
+import menus.MenuExtendido;
 
 public class PracticaJuego {
 
 	public static void main(String[] args) {
-		JuegosReunidos juegosReunidos= new JuegosReunidos();
-		Menu menu= new Menu(juegosReunidos);
+		JuegosReunidosExtendido juegosReunidos= new JuegosReunidosExtendido(MyInput.leeFichero("diccionario.txt"));
+		MenuExtendido menu= new MenuExtendido(juegosReunidos);
 		menu.ejecuta();
-		
 	}
 }
