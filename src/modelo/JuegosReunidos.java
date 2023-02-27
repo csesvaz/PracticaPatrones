@@ -1,7 +1,8 @@
 package modelo;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class JuegosReunidos {
+public class JuegosReunidos implements Serializable{
 	// Array de Juegos
 	//private Jugable[] juegos = new Jugable[3];
 	//Lo modificamos a Arraylist

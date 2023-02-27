@@ -3,63 +3,82 @@ package modelo;
 import java.util.Random;
 
 public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable {
-	//numeroAdivinar representa el atributo propio de la cadena JuegoAdivinaNumero
-		private int numeroAdivinar;
-	//Constructor
-		public JuegoAdivinaNumero(int vidas) {
-			super(vidas);
+	// numeroAdivinar representa el atributo propio de la cadena JuegoAdivinaNumero
+	private int numeroAdivinar;
+
+	// Constructor
+	public JuegoAdivinaNumero(int vidas) {
+		super(vidas);
+	}
+
+	// metodos (polimorfismo)
+	public boolean validaNumero(int numero) {
+		boolean marca = false;
+		if ((numero >= 0) && (numero <= 10)) {
+			marca = true;
+		} else {
+			System.out.println("Número fuera de rango");
 		}
-	//metodos (polimorfismo)
-		public boolean validaNumero(int numero) {
-			boolean marca=false;
-			if ((numero>=0)&&(numero<=10)) {
-				marca=true;
-			}else {
-				System.out.println("Número fuera de rango");
-			}
-			return marca;
+		return marca;
+	}
+
+	@Override
+	public boolean validaFormato(String cad) {
+		int numero;
+		try {
+			numero = Integer.parseInt(cad);
+		} catch (NumberFormatException nfe) {
+			System.out.println("El formato no es correcto. Inténtelo de nuevo.");
+			return false;
 		}
-		// Este método da las reglas para jugar un paso en el juego AdivinaNumero, esto es una repetición.
-		@Override
-		public boolean juega(String numero) {
-			Integer numeroIntento;
-				numeroIntento=Integer.parseInt(numero);
-				if (validaNumero(numeroIntento)) {
-					if (numeroIntento==numeroAdivinar) {
-						System.out.println("Acertaste!!, Enhorabuena");
-						actualizaRecord();
-						return false;
-					}else{
-						if (numeroAdivinar>numeroIntento) {
-							System.out.println("Su numero es menor que el número a adivinar.");
-						} else {
-							System.out.println("Su numero es mayor que el número a adivinar.");
-						}
-						return quitaVida();
-					}
+		return true;
+	}
+
+	// Este método da las reglas para jugar un paso en el juego AdivinaNumero, esto
+	// es una repetición.
+	@Override
+	public boolean juega(String numero) {
+		Integer numeroIntento;
+		numeroIntento = Integer.parseInt(numero);
+		if (validaNumero(numeroIntento)) {
+			if (numeroIntento == numeroAdivinar) {
+				System.out.println("Acertaste!!, Enhorabuena");
+				actualizaRecord();
+				return false;
+			} else {
+				if (numeroAdivinar > numeroIntento) {
+					System.out.println("Su numero es menor que el número a adivinar.");
 				} else {
-					return true;
-		}
+					System.out.println("Su numero es mayor que el número a adivinar.");
 				}
-		//Método que genera un número aleatorio.
-		public int numeroAleatorio() {
-			Random r= new Random(System.currentTimeMillis());
-				return r.nextInt(11);
-		}
-		//reescribimos reinicia partida
-		public void reiniciaPartida() {
-			super.reiniciaPartida();
-			numeroAdivinar=numeroAleatorio();
-		}
-		
-		@Override
-		public void muestraNombre() {
-			System.out.println("Juego Adivina Número");
-			
-		}
-		@Override
-		public void muestraInfo() {
-			System.out.println("Este juego consiste en adivinar una número entero entre 0 y 10.");
-			muestraVidasIniciales();
+				return quitaVida();
+			}
+		} else {
+			return true;
 		}
 	}
+
+	// Método que genera un número aleatorio.
+	public int numeroAleatorio() {
+		Random r = new Random(System.currentTimeMillis());
+		return r.nextInt(11);
+	}
+
+	// reescribimos reinicia partida
+	public void reiniciaPartida() {
+		super.reiniciaPartida();
+		numeroAdivinar = numeroAleatorio();
+	}
+
+	@Override
+	public void muestraNombre() {
+		System.out.println("Juego Adivina Número");
+
+	}
+
+	@Override
+	public void muestraInfo() {
+		System.out.println("Este juego consiste en adivinar una número entero entre 0 y 10.");
+		muestraVidasIniciales();
+	}
+}

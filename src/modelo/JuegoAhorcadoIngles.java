@@ -41,7 +41,7 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable {
 
 	public void mostrarArray(ArrayList<Character> lista) {
 		for (Character auxiliar : lista)
-			System.out.println(auxiliar);
+			System.out.print(auxiliar);
 		System.err.println();
 	}
 
@@ -60,20 +60,32 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable {
 		mostrarArray(guiones);
 	}
 
+	@Override
+	public boolean validaFormato(String cad) {
+		Character car = cad.charAt(0);
+		if ((cad.length() == 1) && (Character.isLetter(car)) && (Character.isLowerCase(car))) {
+			return true;
+		} else {
+			System.out.println("El formato no es correcto. Inténtelo de nuevo.");
+			return false;
+		}
+	}
+
 	public boolean juega(String caracter) {
-		Character c= caracter.charAt(0);
+		Character c = caracter.charAt(0);
 		if (existeCaracter(c)) {
 			mostrarArray(guiones);
 			if (guiones.equals(palabraAdivinar)) {
 				System.out.println("Has acertado");
 				actualizaRecord();
-					return false;
+				return false;
 			} else {
 				return true;
-			}}else{
-				System.out.println("Este carcter no se encuentra en la palabra.");
-				return quitaVida();
 			}
+		} else {
+			System.out.println("Este caracter no se encuentra en la palabra.");
+			return quitaVida();
 		}
-			
 	}
+
+}

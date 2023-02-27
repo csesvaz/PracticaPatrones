@@ -13,14 +13,16 @@ public class Menu {
 	}
 
 	public void jugar(Jugable juego) {
-		String numeroIntento;
+		String intento;
 		juego.reiniciaPartida();
 		juego.muestraNombre();
 		juego.muestraInfo();
 		do {
-			System.out.println("Introduce un numero entero de 1 a 10.");
-			numeroIntento = MyInput.readString();
-		} while (juego.juega(numeroIntento));
+			System.out.println("Introduce tu respuesta");
+			do {
+				intento = MyInput.readString();
+			}while(!juego.validaFormato(intento));
+		} while (juego.juega(intento));
 	}
 
 	public void mostrarOpciones() {
@@ -53,13 +55,13 @@ public class Menu {
 
 		return opcion;
 	}
-	
+
 	public void ejecuta() {
 		String respuesta;
 		do {
 			jugar(juegos.recuperarJuego(eligeOpciones()));
 			System.out.println("¿Quieres seguir jugando?. En caso afirmativo introduzca \"s\"");
-			respuesta=MyInput.readString();
+			respuesta = MyInput.readString();
 		} while (respuesta.equals("s"));
 	}
 }
