@@ -14,21 +14,16 @@ public abstract class JuegoConVidas implements Serializable {
 		this.vidas = vidas;
 	}
 	// Visualiza por pantalla el número de vidas iniciales de la partida actual.
-
-	public void muestraVidasIniciales() {
-		System.out.println("Vidas iniciales: " + vidasIniciales);
-	}
-
-	// Visualiza por pantalla el número de vidas actuales de la partida.
-	private void muestraVidasRestantes() {
-		System.out.println("Vidas actuales: " + vidas);
+	// Estos dos métodos muestraVidasIniciales y mestraVidasRestrantes se pueden agrupar en muestraVidas.
+	public void muestraVidas() {
+		System.out.println("Vidas iniciales: " + vidasIniciales+ " y las vidas actuales: " + vidas);
 	}
 
 	// Resta una vida en caso de tener más de 1, si se tiene 0 marca el fin del
 	// juego.
 	public boolean quitaVida() {
 		if (--vidas != 0) {
-			muestraVidasRestantes();
+			muestraVidas();
 			return true;
 		} else {
 

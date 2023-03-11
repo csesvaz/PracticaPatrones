@@ -13,13 +13,12 @@ public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable {
 
 	// metodos (polimorfismo)
 	public boolean validaNumero(int numero) {
-		boolean marca = false;
 		if ((numero >= 0) && (numero <= 10)) {
-			marca = true;
+			return true;
 		} else {
 			System.out.println("Número fuera de rango");
 		}
-		return marca;
+		return false;
 	}
 
 	@Override
@@ -60,8 +59,7 @@ public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable {
 
 	// Método que genera un número aleatorio.
 	public int numeroAleatorio() {
-		Random r = new Random(System.currentTimeMillis());
-		return r.nextInt(11);
+		return new Random(System.currentTimeMillis()).nextInt(11);
 	}
 
 	// reescribimos reinicia partida
@@ -79,6 +77,6 @@ public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable {
 	@Override
 	public void muestraInfo() {
 		System.out.println("Este juego consiste en adivinar una número entero entre 0 y 10.");
-		muestraVidasIniciales();
+		muestraVidas();
 	}
 }

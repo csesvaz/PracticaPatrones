@@ -25,7 +25,7 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable {
 	@Override
 	public void muestraInfo() {
 		System.out.println("Este juego consiste en adivinar una palabra en inglés.");
-		muestraVidasIniciales();
+		muestraVidas();
 	}
 
 	public boolean existeCaracter(Character caracter) {
@@ -38,11 +38,10 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable {
 		}
 		return contador > 0;
 	}
-
 	public void mostrarArray(ArrayList<Character> lista) {
 		for (Character auxiliar : lista)
 			System.out.print(auxiliar);
-		System.err.println();
+			System.out.println();
 	}
 
 	// Se puede refactorizar
@@ -50,8 +49,7 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable {
 		super.reiniciaPartida();
 		palabraAdivinar.clear();
 		guiones.clear();
-		Random r = new Random(System.currentTimeMillis());
-		int indice = r.nextInt(diccionario.size());
+		int indice =  new Random(System.currentTimeMillis()).nextInt(diccionario.size());
 		String palAdivinar = diccionario.get(indice);
 		for (int i = 0; i < palAdivinar.length(); i++) {
 			palabraAdivinar.add(palAdivinar.charAt(i));
