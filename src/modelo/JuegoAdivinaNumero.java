@@ -2,6 +2,8 @@ package modelo;
 
 import java.util.Random;
 
+import EntradaSalida.MyInput;
+
 public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable {
 	// numeroAdivinar representa el atributo propio de la cadena JuegoAdivinaNumero
 	private int numeroAdivinar;
@@ -16,7 +18,7 @@ public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable {
 		if ((numero >= 0) && (numero <= 10)) {
 			return true;
 		} else {
-			System.out.println("Número fuera de rango");
+			MyInput.imprimir("Número fuera de rango");
 		}
 		return false;
 	}
@@ -27,7 +29,7 @@ public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable {
 		try {
 			numero = Integer.parseInt(cad);
 		} catch (NumberFormatException nfe) {
-			System.out.println("El formato no es correcto. Inténtelo de nuevo.");
+			MyInput.imprimir("El formato no es correcto. Inténtelo de nuevo.");
 			return false;
 		}
 		return true;
@@ -41,14 +43,14 @@ public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable {
 		numeroIntento = Integer.parseInt(numero);
 		if (validaNumero(numeroIntento)) {
 			if (numeroIntento == numeroAdivinar) {
-				System.out.println("Acertaste!!, Enhorabuena");
+				MyInput.imprimir("Acertaste!!, Enhorabuena");
 				actualizaRecord();
 				return false;
 			} else {
 				if (numeroAdivinar > numeroIntento) {
-					System.out.println("Su numero es menor que el número a adivinar.");
+					MyInput.imprimir("Su numero es menor que el número a adivinar.");
 				} else {
-					System.out.println("Su numero es mayor que el número a adivinar.");
+					MyInput.imprimir("Su numero es mayor que el número a adivinar.");
 				}
 				return quitaVida();
 			}
@@ -70,13 +72,13 @@ public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable {
 
 	@Override
 	public void muestraNombre() {
-		System.out.println("Juego Adivina Número");
+		MyInput.imprimir("Juego Adivina Número");
 
 	}
 
 	@Override
 	public void muestraInfo() {
-		System.out.println("Este juego consiste en adivinar una número entero entre 0 y 10.");
+		MyInput.imprimir("Este juego consiste en adivinar una número entero entre 0 y 10.");
 		muestraVidas();
 	}
 }

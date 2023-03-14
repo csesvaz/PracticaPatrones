@@ -18,7 +18,7 @@ public class Menu {
 		juego.muestraNombre();
 		juego.muestraInfo();
 		do {
-			System.out.println("Introduce tu respuesta");
+			MyInput.imprimir("Introduce tu respuesta");
 			do {
 				intento = MyInput.readString();
 			}while(!juego.validaFormato(intento));
@@ -26,10 +26,10 @@ public class Menu {
 	}
 
 	public void mostrarOpciones() {
-		System.out.println("¿A que quieres jugar?");
-		System.out.println("     1.Introduce 1 si quieres jugar a Adivinar un Número");
-		System.out.println("     2.Introduce 2 si quieres jugar a Adivinar un NúmeroPar");
-		System.out.println("     3.Introduce 3 si quieres jugar a Adivinar un NúmeroImpar");
+		MyInput.imprimir("¿A que quieres jugar?");
+		MyInput.imprimir("     1.Introduce 1 si quieres jugar a Adivinar un Número");
+		MyInput.imprimir("     2.Introduce 2 si quieres jugar a Adivinar un NúmeroPar");
+		MyInput.imprimir("     3.Introduce 3 si quieres jugar a Adivinar un NúmeroImpar");
 	}
 
 	public boolean chequearOpcion(int opcion) {
@@ -49,7 +49,7 @@ public class Menu {
 			if (chequearOpcion(opcion)) {
 				marca = false;
 			} else {
-				System.out.println("La opcion introducida no es correcta, inténtelo de nuevo.");
+				MyInput.imprimir("La opcion introducida no es correcta, inténtelo de nuevo.");
 			}
 		} while (marca);
 
@@ -60,7 +60,7 @@ public class Menu {
 		String respuesta;
 		do {
 			jugar(juegos.recuperarJuego(eligeOpciones()));
-			System.out.println("¿Quieres seguir jugando?. En caso afirmativo introduzca \"s\"");
+			MyInput.imprimir("¿Quieres seguir jugando?. En caso afirmativo introduzca \"s\"");
 			respuesta = MyInput.readString();
 		} while (respuesta.equals("s"));
 	}

@@ -15,6 +15,9 @@ import java.util.ArrayList;
  * @author jvalvarez
  */
 public class MyInput {
+	public static void imprimir(String texto) {
+		System.out.println(texto);
+	}
 	// Lee una cadena de caracteres desde el teclado
 
 	/**

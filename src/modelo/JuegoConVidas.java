@@ -1,5 +1,7 @@
 package modelo;
 import java.io.Serializable;
+
+import EntradaSalida.MyInput;
 //Lo hemos hecho serializable con el interfaz ( Es un interfaz vacio
 //para que el sistema sepa que un objeto puede ser serialiazado
 public abstract class JuegoConVidas implements Serializable {
@@ -16,7 +18,7 @@ public abstract class JuegoConVidas implements Serializable {
 	// Visualiza por pantalla el número de vidas iniciales de la partida actual.
 	// Estos dos métodos muestraVidasIniciales y mestraVidasRestrantes se pueden agrupar en muestraVidas.
 	public void muestraVidas() {
-		System.out.println("Vidas iniciales: " + vidasIniciales+ " y las vidas actuales: " + vidas);
+		MyInput.imprimir("Vidas iniciales: " + vidasIniciales+ " y las vidas actuales: " + vidas);
 	}
 
 	// Resta una vida en caso de tener más de 1, si se tiene 0 marca el fin del
@@ -27,7 +29,7 @@ public abstract class JuegoConVidas implements Serializable {
 			return true;
 		} else {
 
-			System.out.println("Juego terminado.");
+			MyInput.imprimir("Juego terminado.");
 			return false;
 		}
 	}
@@ -38,10 +40,10 @@ public abstract class JuegoConVidas implements Serializable {
 
 	public int actualizaRecord() {
 		if (record == vidas) {
-			System.out.println("Se ha alcanzado el record.");
+			MyInput.imprimir("Se ha alcanzado el record.");
 		} else if (vidas > record) {
 			record = vidas;
-			System.out.println("Se ha batido el record, el record actual es de " + record);
+			MyInput.imprimir("Se ha batido el record, el record actual es de " + record);
 		}
 		return 0;
 	}

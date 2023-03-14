@@ -3,6 +3,8 @@ package modelo;
 import java.util.ArrayList;
 import java.util.Random;
 
+import EntradaSalida.MyInput;
+
 public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable {
 	// palabra a adivinar tiene la palabra que debo adivinar y el diccionario de
 	// donde voy a sacar las palabras aleatorias.
@@ -18,13 +20,13 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable {
 
 	@Override
 	public void muestraNombre() {
-		System.out.println("Juego del ahorcado.");
+		MyInput.imprimir("Juego del ahorcado.");
 
 	}
 
 	@Override
 	public void muestraInfo() {
-		System.out.println("Este juego consiste en adivinar una palabra en inglés.");
+		MyInput.imprimir("Este juego consiste en adivinar una palabra en inglés.");
 		muestraVidas();
 	}
 
@@ -41,7 +43,7 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable {
 	public void mostrarArray(ArrayList<Character> lista) {
 		for (Character auxiliar : lista)
 			System.out.print(auxiliar);
-			System.out.println();
+		MyInput.imprimir("");
 	}
 
 	// Se puede refactorizar
@@ -64,7 +66,7 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable {
 		if ((cad.length() == 1) && (Character.isLetter(car)) && (Character.isLowerCase(car))) {
 			return true;
 		} else {
-			System.out.println("El formato no es correcto. Inténtelo de nuevo.");
+			MyInput.imprimir("El formato no es correcto. Inténtelo de nuevo.");
 			return false;
 		}
 	}
@@ -74,14 +76,14 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable {
 		if (existeCaracter(c)) {
 			mostrarArray(guiones);
 			if (guiones.equals(palabraAdivinar)) {
-				System.out.println("Has acertado");
+				MyInput.imprimir("Has acertado");
 				actualizaRecord();
 				return false;
 			} else {
 				return true;
 			}
 		} else {
-			System.out.println("Este caracter no se encuentra en la palabra.");
+			MyInput.imprimir("Este caracter no se encuentra en la palabra.");
 			return quitaVida();
 		}
 	}

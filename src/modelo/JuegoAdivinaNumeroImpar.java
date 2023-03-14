@@ -2,6 +2,8 @@ package modelo;
 
 import java.util.Random;
 
+import EntradaSalida.MyInput;
+
 public class JuegoAdivinaNumeroImpar extends JuegoAdivinaNumero {
 
 	public JuegoAdivinaNumeroImpar(int vidas) {
@@ -13,7 +15,7 @@ public class JuegoAdivinaNumeroImpar extends JuegoAdivinaNumero {
 			if ((numero%2==1)) {
 				marca=true;
 			} else {
-				System.out.println("El número indicado es par.");
+				MyInput.imprimir("El número indicado es par.");
 			}
 		}
 		return marca;
@@ -24,12 +26,12 @@ public class JuegoAdivinaNumeroImpar extends JuegoAdivinaNumero {
 	}
 	@Override
 	public void muestraNombre() {
-		System.out.println("Juego Adivina Número Impar");
+		MyInput.imprimir("Juego Adivina Número Impar");
 		
 	}
 	@Override
 	public void muestraInfo() {
-		System.out.println("Este juego consiste en adivinar una número entero entre 0 y 10, que sea impar.");
+		MyInput.imprimir("Este juego consiste en adivinar una número entero entre 0 y 10, que sea impar.");
 		muestraVidas();
 	}
 }
